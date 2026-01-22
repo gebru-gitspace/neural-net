@@ -129,5 +129,13 @@ if __name__ == "__main__":
         optimizer.update(dense2)
         optimizer.update(dense3)
 
+        #show loss and accuracy
         if epoch % 200 == 0:
-            print(f"Epoch {epoch:4d} | Loss: {loss:.6f}")
+            predictions = np.argmax(softmax.output, axis=1)
+            accuracy = np.mean(predictions == y)
+            print(
+                f"Epoch {epoch:4d} | "
+                f"Loss: {loss:.6f} | "
+                f"Accuracy: {accuracy:.2f}"
+            )
+
